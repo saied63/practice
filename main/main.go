@@ -1,13 +1,14 @@
 package main
 
 import (
-	"github.com/saied63/practice/NativeRestServer"
+	_ "strconv"
+
+	"github.com/saied63/practice/NativeRestServer/NativeServer"
 	_ "github.com/saied63/practice/publishedmodule/complexmath"
 	_ "github.com/saied63/practice/publishedmodule/restServer"
+	_ "github.com/saied63/practice/publishedmodule/simplemath"
 	_ "github.com/saied63/practice/publishedmodule/useless"
-	_ "github.com/saied63practice/publishedmodule/simplemath"
 	"go.mongodb.org/mongo-driver/bson"
-	_ "strconv"
 )
 
 //var _ = complexmath.Devide
