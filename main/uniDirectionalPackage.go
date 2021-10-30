@@ -7,7 +7,7 @@ func init() {
 	//callBiDirectionalChannel()
 	// call uni directional chanel and try read from that and get error
 	//callUniDirectionalChan()
-	usageOfUnidirectionalChan()
+	//usageOfUnidirectionalChan()
 }
 
 func callBiDirectionalChannel() {

@@ -17,7 +17,7 @@ import (
 func init() {
 	//readfile()
 	//getIpAddress()
-	testErrorComparing()
+	//testErrorComparing()
 }
 
 // in build int error handlingg this interface will return a string which describe an error

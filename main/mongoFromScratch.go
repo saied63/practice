@@ -13,7 +13,7 @@ import (
 var mongoClient *mongo.Client
 
 func init() {
-	fmt.Println("mongo db from scratch ... ")
+	//fmt.Println("mongo db from scratch ... ")
 
 }
 

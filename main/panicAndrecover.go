@@ -9,7 +9,7 @@ func init() {
 	//testPanic3()
 	//recoverPanic()
 	//recoverPanic()
-	recoverFromRuntimePanic()
+	//recoverFromRuntimePanic()
 }
 
 func testPanich(user *string) {

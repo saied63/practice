@@ -1,7 +1,7 @@
 package restServer
 
 import (
-	"fmt"
+	_ "fmt"
 	"log"
 	"net/http"
 )
@@ -17,7 +17,7 @@ func (s *server) ServeHTTP(resWriter http.ResponseWriter, req *http.Request) {
 }
 
 func init() {
-	fmt.Println("init web api restful")
+	//fmt.Println("init web api restful")
 	//StartServer("127.0.0.1", 80)
 }
 

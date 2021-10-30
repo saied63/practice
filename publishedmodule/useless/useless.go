@@ -1,9 +1,9 @@
 package useless
 
 import (
-	"fmt"
+	_ "fmt"
 )
 
 func init() {
-	fmt.Println("init from useless package")
+	//fmt.Println("init from useless package")
 }

@@ -9,7 +9,7 @@ import (
 )
 
 func init() {
-	useAssert()
+	//useAssert()
 }
 
 type myInterface interface {

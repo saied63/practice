@@ -18,7 +18,7 @@ var ctx context.Context
 var cancel context.CancelFunc
 
 func init() {
-	ClientConnect()
+	//ClientConnect()
 }
 
 type MongoPerson struct {

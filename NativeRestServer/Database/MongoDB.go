@@ -1,9 +1,9 @@
 package Database
 
 import (
-	"fmt"
+	_ "fmt"
 )
 
 func init() {
-	fmt.Println("init from database package")
+	//fmt.Println("init from database package")
 }
