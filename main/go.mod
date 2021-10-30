@@ -9,7 +9,7 @@ require (
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/jzelinskie/geddit v0.0.0-20200521013404-78c28c13fba2
-	github.com/saied63/practice/publishedmodule v0.0.0-20211029130755-982eb374c412
+	github.com/saied63/practice/publishedmodule v0.0.0-20211030155549-c36ab7ee8507
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
 	go.mongodb.org/mongo-driver v1.7.3
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect

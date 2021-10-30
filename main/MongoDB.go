@@ -12,49 +12,73 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
+var connectionString string
+
 func init() {
-
+	connectionString = "mongodb://saied63:111111@127.0.0.1:27017"
 }
-
-var clint mongo.Client
 
 //var mongoOptions options.ClientOptions
 
-func CreateConnection() {
-	if client == nil {
-		mongoOptions := options.Client().ApplyURI("mongodb://saied63:111111@127.0.01:27017")
-		timeout := time.Duration(10 * time.Second)
-		mongoOptions.ServerSelectionTimeout = &timeout
-		mongoOptions.SetMaxPoolSize(100)
-		var err error
-		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-		client, err = mongo.Connect(ctx, mongoOptions)
+func CreateConnection() mongo.Client {
 
-		defer cancel()
-		defer clint.Disconnect(ctx)
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
+	mongoOptions := options.Client().ApplyURI(connectionString)
+	timeout := time.Duration(10 * time.Second)
+	mongoOptions.ServerSelectionTimeout = &timeout
+	mongoOptions.SetMaxPoolSize(100)
+	ctx, cancelCtx := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancelCtx()
+	client, err := mongo.Connect(ctx, mongoOptions)
+	if err != nil {
+		log.Fatal(err)
 	}
+	defer client.Disconnect(ctx)
+	//////////////
+	client, err = mongo.NewClient(options.Client().ApplyURI("<MONGODB_URI>"))
+	if err != nil {
+		log.Fatal(err)
+	}
+	ctx, _ = context.WithTimeout(context.Background(), 10*time.Second)
+	err = client.Connect(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer client.Disconnect(ctx)
+	////////////////////////
+
+	defer cancelCtx()
+	//defer clint.Disconnect(ctx)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return *client
 }
 
 func GetThisUser(dbname string, collectionName string) {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
-	err := client.Connect(ctx)
+
+	mongoOptions := options.Client().ApplyURI(connectionString)
+	timeout := time.Duration(10 * time.Second)
+	mongoOptions.ServerSelectionTimeout = &timeout
+	mongoOptions.SetMaxPoolSize(100)
+	ctx, cancelCtx := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancelCtx()
+	client, err := mongo.Connect(ctx, mongoOptions)
 	if err != nil {
 		log.Fatal(err)
-		return
 	}
+	defer client.Disconnect(ctx)
+
 	err = client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		log.Fatal(err)
 		return
+	} else {
+		fmt.Println("ping goes right ..")
 	}
-	collection := client.Database(dbname).Collection(collectionName)
 
-	cursor, err := collection.Find(ctx, bson.M{})
+	collection := client.Database(dbname).Collection(collectionName)
+	filter := bson.M{"_id": 7}
+	cursor, err := collection.Find(ctx, filter)
 
 	if err != nil {
 		fmt.Println(err)
@@ -62,6 +86,10 @@ func GetThisUser(dbname string, collectionName string) {
 	}
 	defer cursor.Close(ctx)
 	var bsonDoc *bson.M
+	// if cursor.Next(ctx) {
+	// 	fmt.Println(cursor.RemainingBatchLength())
+	// }
+
 	for cursor.Next(ctx) {
 		fmt.Println()
 		err := cursor.Decode(&bsonDoc)
