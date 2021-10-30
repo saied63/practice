@@ -3,18 +3,16 @@ package main
 import (
 	_ "strconv"
 
-	"github.com/saied63/practice/NativeRestServer/NativeServer"
 	_ "github.com/saied63/practice/publishedmodule/complexmath"
 	_ "github.com/saied63/practice/publishedmodule/restServer"
 	_ "github.com/saied63/practice/publishedmodule/simplemath"
 	_ "github.com/saied63/practice/publishedmodule/useless"
-	"go.mongodb.org/mongo-driver/bson"
 )
 
 //var _ = complexmath.Devide
 //var _ = simplemath.Add
 
-var insertOneTest bson.D = bson.D{{Key: "name", Value: "njjn"}, {Key: "age", Value: 44}, {Key: "city", Value: "japon"}}
+//var insertOneTest bson.D = bson.D{{Key: "name", Value: "njjn"}, {Key: "age", Value: 44}, {Key: "city", Value: "japon"}}
 
 func init() {
 	//fmt.Println("init func from main")
@@ -120,5 +118,6 @@ func main() {
 	// fmt.Println(time.Since(ti).Seconds())
 	//TestMongo()
 
-	NativeServer.StartServerRest()
+	//	NativeServer.StartServerRest()
+	GetThisUser("startagain", "books")
 }
