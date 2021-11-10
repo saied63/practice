@@ -33,8 +33,8 @@ func CreateConnection() mongo.Client {
 		log.Fatal(err)
 	}
 	defer func() {
-		if err = client.Disconnect(ctx); err != nil {
-			panic(err)
+		if error := client.Disconnect(ctx); error != nil {
+			panic(error)
 		}
 	}()
 	//////////////
