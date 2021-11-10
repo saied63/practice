@@ -32,9 +32,13 @@ func CreateConnection() mongo.Client {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer client.Disconnect(ctx)
+	defer func() {
+		if err = client.Disconnect(ctx); err != nil {
+			panic(err)
+		}
+	}()
 	//////////////
-	client, err = mongo.NewClient(options.Client().ApplyURI("<MONGODB_URI>"))
+	client, err = mongo.NewClient(options.Client().ApplyURI(connectionString))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -43,7 +47,11 @@ func CreateConnection() mongo.Client {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer client.Disconnect(ctx)
+	defer func() {
+		if err = client.Disconnect(ctx); err != nil {
+			panic(err)
+		}
+	}()
 	////////////////////////
 
 	defer cancelCtx()
@@ -54,8 +62,20 @@ func CreateConnection() mongo.Client {
 	return *client
 }
 
-func GetThisUser(dbname string, collectionName string) {
+func GetPing() bool {
+	ctx, cancelCtx := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancelCtx()
+	err := client.Ping(ctx, readpref.Primary())
+	if err != nil {
+		log.Fatal(err)
+		return false
+	} else {
+		fmt.Println("ping goes right ..")
+		return true
+	}
+}
 
+func GetThisUser(dbname string, collectionName string) {
 	mongoOptions := options.Client().ApplyURI(connectionString)
 	timeout := time.Duration(10 * time.Second)
 	mongoOptions.ServerSelectionTimeout = &timeout
@@ -67,14 +87,6 @@ func GetThisUser(dbname string, collectionName string) {
 		log.Fatal(err)
 	}
 	defer client.Disconnect(ctx)
-
-	err = client.Ping(ctx, readpref.Primary())
-	if err != nil {
-		log.Fatal(err)
-		return
-	} else {
-		fmt.Println("ping goes right ..")
-	}
 
 	collection := client.Database(dbname).Collection(collectionName)
 	filter := bson.M{"_id": 7}
@@ -89,9 +101,8 @@ func GetThisUser(dbname string, collectionName string) {
 	// if cursor.Next(ctx) {
 	// 	fmt.Println(cursor.RemainingBatchLength())
 	// }
-
-	for cursor.Next(ctx) {
-		fmt.Println()
+	for cursor.RemainingBatchLength() > 0 {
+		fmt.Println(cursor.Next(ctx))
 		err := cursor.Decode(&bsonDoc)
 		if err != nil {
 			fmt.Println(err)
@@ -99,6 +110,17 @@ func GetThisUser(dbname string, collectionName string) {
 			fmt.Println(bsonDoc)
 		}
 	}
+	/*
+		for cursor.Next(ctx) {
+			fmt.Println()
+			err := cursor.Decode(&bsonDoc)
+			if err != nil {
+				fmt.Println(err)
+			} else {
+				fmt.Println(bsonDoc)
+			}
+		}
+	*/
 }
 
 /*
