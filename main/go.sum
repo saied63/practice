@@ -169,6 +169,8 @@ github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:
 github.com/rogpeppe/go-internal v1.1.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/rogpeppe/go-internal v1.2.2/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
+github.com/saied63/practice/NativeRestServer v0.0.0-20211111105445-f603bff43a83 h1:i4cjdrB/G04GzvgxAWxkG9iIVhGbIOpGfwFbhlbzeEI=
+github.com/saied63/practice/NativeRestServer v0.0.0-20211111105445-f603bff43a83/go.mod h1:XhFUG+vjVPHDaoHLEhgQzfDw5tsOECC2m+4qmQ/8few=
 github.com/saied63/practice/publishedmodule v0.0.0-20211030155549-c36ab7ee8507 h1:ZqUQe6j7L0m5GMvUUQpJWdcYwDBT8swKHPCGHcbKfDk=
 github.com/saied63/practice/publishedmodule v0.0.0-20211030155549-c36ab7ee8507/go.mod h1:bPIIckt+AnShYXFFbkYMqWct4KLDNJqXL5Y1hefaiAo=
 github.com/sirupsen/logrus v1.4.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=

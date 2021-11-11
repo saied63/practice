@@ -10,6 +10,7 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/jzelinskie/geddit v0.0.0-20200521013404-78c28c13fba2
+	github.com/saied63/practice/NativeRestServer v0.0.0-20211111105445-f603bff43a83 // indirect
 	github.com/saied63/practice/publishedmodule v0.0.0-20211030155549-c36ab7ee8507
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
 	go.mongodb.org/mongo-driver v1.7.3
