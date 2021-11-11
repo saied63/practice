@@ -8,6 +8,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
+	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/jzelinskie/geddit v0.0.0-20200521013404-78c28c13fba2
 	github.com/saied63/practice/publishedmodule v0.0.0-20211030155549-c36ab7ee8507
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
