@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	_ "strconv"
 
+	_ "github.com/saied63/practice/NativeRestServer/Gorilla"
 	_ "github.com/saied63/practice/NativeRestServer/NativeServer"
 	_ "github.com/saied63/practice/publishedmodule/complexmath"
 	_ "github.com/saied63/practice/publishedmodule/restServer"
@@ -120,5 +122,6 @@ func main() {
 	//TestMongo()
 
 	//	NativeServer.StartServerRest()
-	GetThisUser("startagain", "books")
+	//GetThisUser("startagain", "books")
+	fmt.Println("test")
 }

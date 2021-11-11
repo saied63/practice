@@ -65,6 +65,7 @@ func CreateConnection() mongo.Client {
 func GetPing() bool {
 	ctx, cancelCtx := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancelCtx()
+	client := CreateConnection()
 	err := client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		log.Fatal(err)
