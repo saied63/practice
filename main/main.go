@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	_ "strconv"
 
+	"github.com/saied63/practice/NativeRestServer/Gorilla"
 	_ "github.com/saied63/practice/NativeRestServer/Gorilla"
 	_ "github.com/saied63/practice/NativeRestServer/NativeServer"
 	_ "github.com/saied63/practice/publishedmodule/complexmath"
@@ -123,5 +123,6 @@ func main() {
 
 	//	NativeServer.StartServerRest()
 	//GetThisUser("startagain", "books")
-	fmt.Println("test")
+	//fmt.Println("test")
+	Gorilla.StartGorrill()
 }
