@@ -166,6 +166,8 @@ github.com/rogpeppe/go-internal v1.2.2/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFR
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/saied63/practice/NativeRestServer v0.0.0-20211111111203-a7549ca48b25 h1:5pZnTXR2JAxeEwgFMy+f2kmPTfdL+N+PuDaqctNiteU=
 github.com/saied63/practice/NativeRestServer v0.0.0-20211111111203-a7549ca48b25/go.mod h1:9qksf9/WCmYVNxCBD7Iwbl9oYYWbNvgIIDqcbx8OZBk=
+github.com/saied63/practice/NativeRestServer v0.0.0-20211111114419-4fabcc827ef0 h1:lgFids/lhRO0JchBA1sUaIA4pGgpcGBJqdU+hqlzNRI=
+github.com/saied63/practice/NativeRestServer v0.0.0-20211111114419-4fabcc827ef0/go.mod h1:9qksf9/WCmYVNxCBD7Iwbl9oYYWbNvgIIDqcbx8OZBk=
 github.com/saied63/practice/publishedmodule v0.0.0-20211111111203-a7549ca48b25 h1:rByD48yXFsQxr2K8uXvyjNEJRNBBREOfInxhNEVrzAc=
 github.com/saied63/practice/publishedmodule v0.0.0-20211111111203-a7549ca48b25/go.mod h1:bPIIckt+AnShYXFFbkYMqWct4KLDNJqXL5Y1hefaiAo=
 github.com/sirupsen/logrus v1.4.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=
