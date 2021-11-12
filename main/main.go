@@ -3,8 +3,7 @@ package main
 import (
 	_ "strconv"
 
-	"github.com/saied63/practice/NativeRestServer/Gorilla"
-
+	_ "github.com/saied63/practice/NativeRestServer/Gorilla"
 	_ "github.com/saied63/practice/NativeRestServer/NativeServer"
 	_ "github.com/saied63/practice/publishedmodule/complexmath"
 	_ "github.com/saied63/practice/publishedmodule/restServer"
@@ -124,5 +123,5 @@ func main() {
 	//	NativeServer.StartServerRest()
 	//GetThisUser("startagain", "books")
 	//fmt.Println("test")
-	Gorilla.StartGorrill()
+	StartGorrill()
 }

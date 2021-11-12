@@ -1,4 +1,4 @@
-package Gorilla
+package main
 
 import (
 	"fmt"
@@ -26,7 +26,7 @@ func ArticlesHandler(resp http.ResponseWriter, req *http.Request) {
 
 }
 
-func initRouter() {
+func init() {
 	router = mux.NewRouter()
 	router.HandleFunc("/", HomeHandler).Methods("GET")
 	router.HandleFunc("/products", ProductsHandler).Methods("GET")
