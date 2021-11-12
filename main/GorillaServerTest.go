@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-var router *mux.Router
+var rout *mux.Router
 
 type serverInfo struct {
 }
@@ -27,20 +27,20 @@ func ArticlesHandler(resp http.ResponseWriter, req *http.Request) {
 }
 
 func init() {
-	router = mux.NewRouter()
-	router.HandleFunc("/", HomeHandler).Methods("GET")
-	router.HandleFunc("/products", ProductsHandler).Methods("GET")
-	router.HandleFunc("/articles", ArticlesHandler).Methods("POST")
-	router.Host("http://localhost.com")
-	router.Host("{subdomain:[a-z]+}.http://localhost.com")
+	rout = mux.NewRouter()
+	rout.HandleFunc("/api", HomeHandler).Methods("GET")
+	rout.HandleFunc("/api/products", ProductsHandler).Methods("GET")
+	rout.HandleFunc("/api/articles", ArticlesHandler).Methods("POST")
+	rout.Host("http://localhost.com")
+	rout.Host("{subdomain:[a-z]+}.http://localhost.com")
 
-	http.Handle("/", router)
+	http.Handle("/api", rout)
 	fmt.Println("router is decleared first  ... ")
 }
 
 func StartGorrill() bool {
 
-	err := http.ListenAndServe(":8080", router)
+	err := http.ListenAndServe(":8080", rout)
 	if err == nil {
 		return true
 	} else {

@@ -35,7 +35,7 @@ func initRouter() {
 	router.Host("{subdomain:[a-z]+}.http://localhost.com")
 
 	http.Handle("/", router)
-	fmt.Println("router is decleared first  ... ")
+	fmt.Println("router is decleared first in gorilla package  ... ")
 }
 
 func StartGorrill() bool {
