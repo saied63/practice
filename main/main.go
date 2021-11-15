@@ -1,8 +1,11 @@
 package main
 
 import (
+	"fmt"
+	"log"
+	_ "log"
 	_ "strconv"
-
+	"C:/Users/saied/Documents/GoProjects/Final/GorillaPackage"
 	_ "github.com/saied63/practice/NativeRestServer/Gorilla"
 	_ "github.com/saied63/practice/NativeRestServer/NativeServer"
 	_ "github.com/saied63/practice/publishedmodule/complexmath"
@@ -122,6 +125,7 @@ func main() {
 
 	//	NativeServer.StartServerRest()
 	//GetThisUser("startagain", "books")
-	//fmt.Println("test")
-	StartGorrill()
+	fmt.Println("test")
+	log.Fatal(StartGorrill())
+
 }
